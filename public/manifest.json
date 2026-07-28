@@ -2,14 +2,14 @@
   "name": "VaultGuard - Password Manager",
   "short_name": "VaultGuard",
   "description": "A zero-knowledge encrypted password manager. Your passwords never leave your device.",
-  "start_url": "/",
+  "start_url": "/vaultguard/",
   "display": "standalone",
   "background_color": "#09090b",
   "theme_color": "#10b981",
   "orientation": "any",
   "icons": [
     {
-      "src": "/icon.svg",
+      "src": "/vaultguard/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"

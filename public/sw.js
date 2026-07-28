@@ -1,8 +1,8 @@
 const CACHE_NAME = 'vaultguard-v2.0.0';
 const STATIC_ASSETS = [
-  '/',
-  '/icon.svg',
-  '/manifest.json',
+  '/vaultguard/',
+  '/vaultguard/icon.svg',
+  '/vaultguard/manifest.json',
 ];
 
 // Install — cache static assets
@@ -36,7 +36,7 @@ self.addEventListener('fetch', (event) => {
   // For navigation requests, try network first, fall back to cache
   if (request.mode === 'navigate') {
     event.respondWith(
-      fetch(request).catch(() => caches.match('/'))
+      fetch(request).catch(() => caches.match('/vaultguard/'))
     );
     return;
   }
