@@ -45,27 +45,25 @@ export function ImportExportDialog({ mode, open, onOpenChange, onImportComplete 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleExport = async () => {
-    if (!entries.length) return;
+    if (!entries.length || !encryptionKey) return;
     setLoading(true);
     try {
+      // Re-encrypt each entry's data for the export file
+      const encryptedEntries = await Promise.all(
+        entries.map(async (e) => {
+          const { encryptedData, iv } = await encryptEntry(e.data, encryptionKey);
+          return { encryptedData, iv };
+        })
+      );
+
       const exportData = {
-        exportData: {
-          entries: entries.map(e => ({
-            platform: e.data.platform,
-            username: e.data.username,
-            email: e.data.email,
-            password: e.data.password,
-            category: e.data.category,
-            notes: e.data.other,
-            url: e.data.platformUrl,
-          })),
-          entryCount: entries.length,
-          exportedAt: new Date().toISOString(),
-        }
+        entries: encryptedEntries,
+        entryCount: entries.length,
+        exportedAt: new Date().toISOString(),
       };
 
       // Create and download file
-      const blob = new Blob([JSON.stringify(exportData.exportData, null, 2)], {
+      const blob = new Blob([JSON.stringify(exportData, null, 2)], {
         type: 'application/json',
       });
       const url = URL.createObjectURL(blob);
@@ -77,7 +75,7 @@ export function ImportExportDialog({ mode, open, onOpenChange, onImportComplete 
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
 
-      toast.success(`Exported ${exportData.exportData.entryCount} entries as JSON`);
+      toast.success(`Exported ${exportData.entryCount} entries as encrypted JSON`);
       localStorage.setItem('vault_last_export', Date.now().toString());
       onOpenChange(false);
     } catch {

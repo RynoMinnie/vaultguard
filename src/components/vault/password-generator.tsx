@@ -77,10 +77,11 @@ export function PasswordGenerator({ value, onChange }: PasswordGeneratorProps) {
     return pw;
   }, [length, uppercase, lowercase, numbers, symbols, onChange]);
 
-  const copyToClipboard = async () => {
-    if (!value) return;
+  const copyToClipboard = async (text?: string) => {
+    const toCopy = text || value;
+    if (!toCopy) return;
     setCopied(true);
-    await copyWithAutoClear(value, 'Password');
+    await copyWithAutoClear(toCopy, 'Password');
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -100,7 +101,7 @@ export function PasswordGenerator({ value, onChange }: PasswordGeneratorProps) {
           size="sm"
           onClick={() => {
             const pw = generate();
-            if (pw) copyToClipboard();
+            if (pw) copyToClipboard(pw);
           }}
           className="h-7 text-xs text-primary hover:text-primary/80"
         >
