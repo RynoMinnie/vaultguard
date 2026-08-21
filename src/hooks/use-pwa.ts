@@ -2,16 +2,17 @@
 
 import { useEffect } from 'react';
 
+// Match basePath from next.config.ts — GitHub Pages serves at /vaultguard/
+// Change this if your repo name differs. Remove if deploying to root domain.
+const BASE_PATH = '/vaultguard';
+
 export function usePWA() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     if (!('serviceWorker' in navigator)) return;
 
-    // Get basePath from Next.js runtime data (empty string if none)
-    const basePath = (window as unknown as { __NEXT_DATA__: { basePath?: string } }).__NEXT_DATA__?.basePath || '';
-
     navigator.serviceWorker
-      .register(`${basePath}/sw.js`)
+      .register(`${BASE_PATH}/sw.js`)
       .then((registration) => {
         console.log('SW registered:', registration.scope);
       })

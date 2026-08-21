@@ -22,15 +22,16 @@ export const metadata: Metadata = {
   title: "Password Vault — Secure Password Manager",
   description: "Zero-knowledge encrypted password manager. Your passwords never leave your device.",
   applicationName: "VaultGuard",
-  manifest: "/manifest.json",
+  // basePath must be hardcoded here — Next.js 16 does NOT auto-prefix these metadata fields
+  manifest: "/vaultguard/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
     title: "VaultGuard",
   },
   icons: {
-    icon: "/icon.svg",
-    apple: "/icon.svg",
+    icon: "/vaultguard/icon.svg",
+    apple: "/vaultguard/icon.svg",
   },
 };
 
