@@ -886,7 +886,7 @@ function VaultScreen() {
 
 // =============== MAIN APP ===============
 export default function HomePage() {
-  usePWA();
+  // usePWA removed — service worker now registered in layout.tsx via <script> tag
   const { isAuthenticated } = useAuthStore();
   const [hasVault, setHasVault] = useState<boolean | null>(null); // null = checking
 
