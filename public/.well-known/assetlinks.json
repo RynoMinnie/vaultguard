@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.rynominnie.twa",
+      "sha256_cert_fingerprints": [
+        "3C:39:DF:36:F3:4F:42:52:41:03:6B:75:DD:9C:9F:45:8A:1B:41:5D:5A:3E:99:72:D0:7D:F8:E5:A8:1F:DE:64",
+        "2D:D7:8A:06:79:AF:FA:5E:9F:1C:09:00:40:85:86:A0:FF:53:A1:3B:9F:51:30:41:C2:92:3B:7E:4E:09:23:54"
+      ]
+    }
+  }
+]
