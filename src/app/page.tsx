@@ -68,7 +68,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const APP_VERSION = 'v1.0.0';
+const APP_VERSION = 'v1.1.0';
 
 // =============== AUTH SCREEN ===============
 function AuthScreen({ hasVault }: { hasVault: boolean }) {
@@ -393,6 +393,14 @@ function AuthScreen({ hasVault }: { hasVault: boolean }) {
                   locally in your browser using <span className="text-primary/80 font-medium">AES-256-GCM</span>.
                 </p>
               </div>
+              <a
+                href="privacy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 text-[10px] text-muted-foreground/50 hover:text-emerald-400 transition-colors duration-200 mx-auto"
+              >
+                Privacy Policy
+              </a>
             </form>
           )}
 
@@ -846,6 +854,14 @@ function VaultScreen() {
           </div>
           <div className="flex items-center gap-3">
             <ThemeToggle />
+            <a
+              href="privacy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-emerald-400 transition-colors duration-200"
+            >
+              Privacy Policy
+            </a>
             <span className="hidden md:flex items-center gap-1 text-muted-foreground/60">
               ⌘K Search · ⌘N New · Esc Clear
             </span>

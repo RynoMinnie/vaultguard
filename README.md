@@ -3,7 +3,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Version](https://img.shields.io/badge/Version-v1.0.0-blue)
+![Version](https://img.shields.io/badge/Version-v1.1.0-blue)
 
 **A zero-knowledge encrypted password manager that runs entirely in your browser. No server. No cloud. Your data never leaves your device.**
 

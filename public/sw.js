@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vaultguard-v2.0.0';
+const CACHE_NAME = 'vaultguard-v1.1.0';
 const STATIC_ASSETS = [
   '/vaultguard/',
   '/vaultguard/icon.svg',
